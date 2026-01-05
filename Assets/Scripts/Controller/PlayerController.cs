@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         Managers.Input.MouseAction += OnMouseClicked;
+
+        Managers.Resources.Instantiate("UI/UI_Button");
+
     }
     private void Update()
     {
@@ -102,7 +105,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        Loger.Log($"OnMouseClick {this.name}");
+        //Loger.Log($"OnMouseClick {this.name}");
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(Camera.main.transform.position, ray.direction * 100, Color.red, 2);

@@ -13,6 +13,16 @@ public class Managers : MonoBehaviour
         }
     }
     InputManager _inputManager = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성 
+    // 개체를 접근 할 수 있도록 열어줌
+    ResourceManager _resourceMnager = new ResourceManager(); // 단일성을 위해서 매니저 클래스에서만 생성 
+
+    public static ResourceManager Resources
+    {
+        get
+        {
+            return Instance._resourceMnager;
+        }
+    }
     public static InputManager Input 
     { 
         get 
