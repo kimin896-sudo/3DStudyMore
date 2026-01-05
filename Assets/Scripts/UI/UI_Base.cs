@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_Base : MonoBehaviour
@@ -89,9 +91,23 @@ public class UI_Base : MonoBehaviour
         else
         {
             return objectsArray[index] as T; // T형식으로 변환해서 내보내 주세요
-
         }
-
     }
 
+    public static void AddUIEvent(GameObject go,Action<PointerEventData> action,Define.UIEvent type = Define.UIEvent.Click)// 개체가 필요없는 정적인 함수 
+    {
+        UI_EventHandler ev = Util.GetOrAddComponent<UI_EventHandler>(go);
+        switch (type)
+        {
+            case Define.UIEvent.Click:
+                ev.OnClickHandler += action;
+                break;
+            case Define.UIEvent.Drag:
+                ev.OnDragHandler += action;
+                break;
+            default:
+                break;
+        }
+        //ev.OnDragHandler += ((PointerEventData data) => { go.transform.position = data.position; });
+    }
 }

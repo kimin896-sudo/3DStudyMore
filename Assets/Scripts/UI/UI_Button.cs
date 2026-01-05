@@ -45,16 +45,22 @@ public class UI_Button : UI_Base
         button = GetButtin((int)Buttons.PointButton);
         //button = Get<Button>((int)Buttons.PointButton);
 
+        //--------------------------------------------------------------------------------
+        /*   GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+           UI_EventHandler ev = go.GetComponent<UI_EventHandler>();
+           ev.OnDragHandler += ((PointerEventData data) => { go.transform.position = data.position; });
+   */
+
+        GetButtin((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        UI_EventHandler ev = go.GetComponent<UI_EventHandler>();
-        ev.OnDragHandler += ((PointerEventData data) => { go.transform.position = data.position; });
-
-        button.onClick.AddListener(OnButtonClicked);
-
+        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; },Define.UIEvent.Drag);
+        //--------------------------------------------------------------------------------
+        // button.onClick.AddListener(OnButtonClicked);
         GetGameObject((int)GameObjets.Test);
         // GameObject go =  Get<GameObject>((int)GameObjets.Test);
-
     }
+
     // GetText(int index) <- 텍스트를 찾는 함수
 /*    TMP_Text GetTMP_Text(int index)
     {
@@ -83,8 +89,6 @@ public class UI_Button : UI_Base
     void Bind<T>(Type type) where T : UnityEngine.Object// 컴포넌트를 물고있으려고 만드는거임
     {
         string[] names = Enum.GetNames(type); // enum이 들고있는 모든 엘리먼트에 대한 이름을 배열로 가져오기 
-
-
         UnityEngine.Object[] objectsArray = new UnityEngine.Object[names.Length];// 컴포넌트들을 저장하기 위한 배열공간 할당 
         objects.Add(typeof(T), objectsArray); // 키 = class == 타입, 벨류 = 컴퍼넌트가 담겨있는 배열 현재는 빈공간 
 
@@ -104,8 +108,6 @@ public class UI_Button : UI_Base
 
         }
     }*/
-
-
 /*    T Get<T>(int index) where T : UnityEngine.Object
     {
 
@@ -118,12 +120,10 @@ public class UI_Button : UI_Base
         else
         {
             return objectsArray[index] as T; // T형식으로 변환해서 내보내 주세요
-
         }
-
     }*/
     int score = 0;
-    void OnButtonClicked()
+    void OnButtonClicked(PointerEventData data)
     {
         score++;
         text.text = $"Score : {score}";

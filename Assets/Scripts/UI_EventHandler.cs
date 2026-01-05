@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class UI_EventHandler : MonoBehaviour,IBeginDragHandler,IDragHandler 
+public class UI_EventHandler : MonoBehaviour,IBeginDragHandler,IDragHandler,IPointerClickHandler
 {
     public Action<PointerEventData> OnBeginDragHandler = null;
     public Action<PointerEventData> OnDragHandler = null;
+    public Action<PointerEventData> OnClickHandler = null;
 
 
     private Vector2 offset; // 마우스 클릭 지점과 이미지 중심의 차이 저장
@@ -27,5 +28,11 @@ public class UI_EventHandler : MonoBehaviour,IBeginDragHandler,IDragHandler
         // 현재 마우스 위치에 처음에 계산한 거리(offset)를 더해줍니다.
         //transform.position = eventData.position + offset;
        // Debug.Log("드래그 중...");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (OnClickHandler != null)
+            OnClickHandler.Invoke(eventData);
     }
 }

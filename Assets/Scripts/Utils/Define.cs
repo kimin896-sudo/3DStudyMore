@@ -9,4 +9,11 @@ public class Define
         Press, // 누르고있는 상태
         Click // 눌렀다 땠을 때 상태 
     }
+
+    public enum UIEvent
+    {
+        Click,
+        Drag,
+
+    }
 }
