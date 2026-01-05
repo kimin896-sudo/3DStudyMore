@@ -16,6 +16,14 @@ public class Managers : MonoBehaviour
     // 개체를 접근 할 수 있도록 열어줌
     ResourceManager _resourceMnager = new ResourceManager(); // 단일성을 위해서 매니저 클래스에서만 생성 
 
+    UI_Manager _ui_manger = new UI_Manager();
+    public static UI_Manager UI_Manager
+    {
+        get
+        {
+            return Instance._ui_manger;
+        }
+    }
     public static ResourceManager Resources
     {
         get

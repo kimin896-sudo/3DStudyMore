@@ -18,7 +18,7 @@ public class ResourceManager
     public GameObject Instantiate(string path, Transform parent = null)
     {
         // 1. [로드]: 공통 경로(prefab/)를 미리 붙여서 파일 위치를 찾습니다.
-        GameObject prefab = Load<GameObject>($"prefabs/{path}");
+        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
         // 2. [예외 처리]: 만약 파일이 없으면 '불러오기 실패'라고 친절하게 알려줍니다. (안정성 강화)
         if (prefab == null)
         {
