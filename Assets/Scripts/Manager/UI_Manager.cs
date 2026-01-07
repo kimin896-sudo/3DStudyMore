@@ -5,11 +5,24 @@ using UnityEngine;
 public class UI_Manager
 {
 
-    int _order = 0; // 가장 최근에 사용한 소트오더를 저장할 예정
+    int _order = 10; // 가장 최근에 사용한 소트오더를 저장할 예정
 
     // 생성된 팝업을 들고 있어 자료구조, LIFO(LAST IN FIRST OUT)
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>(); 
+    UI_Scene _sceneUI = null;
 
+    private GameObject Root
+    {
+        get
+        {
+            GameObject root = GameObject.Find("@UI_Root");
+            if (root == null)
+            {
+                root = new GameObject { name = "@UI_Root" };
+            }
+            return root;
+        }
+    }
     public void SetCanvas(GameObject go, bool sort = true)
     {
         Canvas canvas =  Util.GetOrAddComponent<Canvas>(go);
@@ -28,6 +41,22 @@ public class UI_Manager
 
     }
 
+    public T ShowSceneUI<T>(string name = null) where T : UI_Scene
+    {
+        // 이름이 널이라면 타입 이름으로 바꿔줌
+        if (string.IsNullOrEmpty(name))
+        {
+            name = typeof(T).Name;
+        }
+
+        GameObject go = Managers.Resources.Instantiate($"UI/SceneUI/{name}");
+        T sceneUI = Util.GetOrAddComponent<T>(go);
+        _sceneUI = sceneUI;
+
+        go.transform.SetParent(Root.transform);
+        return sceneUI;
+    }
+
     public T ShowPopUI<T>(string name = null) where T : UI_Popup
     {
         // 이름이 널이라면 타입 이름으로 바꿔줌
@@ -40,7 +69,17 @@ public class UI_Manager
         T popup = Util.GetOrAddComponent<T>(go);
         _popupStack.Push(popup);
 
-     
+
+        /*        GameObject root = GameObject.Find("@UI_Root");
+
+                if (root == null)
+                {
+                    root = new GameObject { name = "@UI_Root" };
+                }*/
+        go.transform.SetParent(Root.transform);
+        /*   go.transform.SetParent(root.transform); // go의 부모를 root로 지정해주겠다.*/
+        /*go.transform.SetParent(); 같은 말
+        go.transform.parent =  root.transform;*/
         return popup;
     }
     public void ClosePopupUI()

@@ -1,0 +1,11 @@
+{
+    "asset": "6442a32c894d32741a03a26805827194",
+    "fileName": "019b9118-258c-7070-b266-a2f14c11e817_Preview.png",
+    "prompt": "wood",
+    "negativePrompt": "",
+    "model": "44ec3749-963a-44b1-aa54-dc19f6ed8ab2",
+    "modelName": "Unity Texture2D",
+    "customSeed": 594946586,
+    "w3CTraceId": "80cd765376d82e2e89b71290dcabfda5",
+    "refinementMode": "Generation"
+}

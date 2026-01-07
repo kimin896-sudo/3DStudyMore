@@ -86,11 +86,13 @@ public class UI_Button : UI_Popup
 
         GetButtin((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+       /* GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
-        //--------------------------------------------------------------------------------
+       */ //--------------------------------------------------------------------------------
         // button.onClick.AddListener(OnButtonClicked);
         GetGameObject((int)GameObjets.Test);
+
+        ClosePopUI();
         // GameObject go =  Get<GameObject>((int)GameObjets.Test);
     }
     // GetText(int index) <- 텍스트를 찾는 함수

@@ -7,29 +7,36 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Base : MonoBehaviour
+public abstract class UI_Base : MonoBehaviour
 {
     Dictionary<Type, UnityEngine.Object[]> objects = new Dictionary<Type, UnityEngine.Object[]>();
+
+    public abstract void Init();
+
     // 리스트와 유사 
     // [1],[2],[3],[4]
 
     // 딕셔너리
     // [key , value] [key , value] [key , value]
-/*    enum Buttons
+    /*    enum Buttons
+        {
+            PointButton
+        }
+        enum Texts
+        {
+            ScoreText,
+        }
+        enum GameObjets
+        {
+            Test,
+        }*/
+    // 랩핑 함수
+    public Text GetText(int index) 
     {
-        PointButton
+        return Get<Text>(index); 
     }
-    enum Texts
-    {
-        ScoreText,
-    }
-    enum GameObjets
-    {
-        Test,
-    }*/
-   
     // GetText(int index) <- 텍스트를 찾는 함수
-   public TMP_Text GetTMP_Text(int index)
+    public TMP_Text GetTMP_Text(int index)
     {
         return Get<TMP_Text>(index);
     }
@@ -84,6 +91,7 @@ public class UI_Base : MonoBehaviour
 
         UnityEngine.Object[] objectsArray = null;
 
+        // 선택한 타입이 있으면 넣어준다,
         if (objects.TryGetValue(typeof(T), out objectsArray) == false)
         {
             return null;

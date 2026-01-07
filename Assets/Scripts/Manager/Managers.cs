@@ -15,8 +15,19 @@ public class Managers : MonoBehaviour
     InputManager _inputManager = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성 
     // 개체를 접근 할 수 있도록 열어줌
     ResourceManager _resourceMnager = new ResourceManager(); // 단일성을 위해서 매니저 클래스에서만 생성 
-
     UI_Manager _ui_manger = new UI_Manager();
+    SceneManagerEx _sceneManagerEx = new SceneManagerEx();
+    SoundManger _soundManger = new SoundManger();
+
+    public static SoundManger SoundManager
+    {
+        get
+        {
+            return Instance._soundManger;
+        }
+    }
+
+    public static SceneManagerEx Scene { get { return Instance._sceneManagerEx; } }
     public static UI_Manager UI_Manager
     {
         get

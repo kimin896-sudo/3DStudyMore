@@ -740,7 +740,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -762,10 +768,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 636fe3aa-fe39-4d14-aa4e-9f732d6d5e5f
+  cloudProjectId: 9a23932e-1773-4c57-b0fc-06658779f469
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 3DStudyMore
+  projectName: 3DStudyMore (1)
   organizationId: kimin896
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

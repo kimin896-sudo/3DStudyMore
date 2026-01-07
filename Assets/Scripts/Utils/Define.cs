@@ -4,6 +4,13 @@ public class Define
 {
     public const int CLICK_LAYER = 9;
 
+    public enum Scene
+    {
+        Unknown,
+        Title,
+        Lobby,
+        Game,
+    }
     public enum MouseEvent
     {
         Press, // 누르고있는 상태

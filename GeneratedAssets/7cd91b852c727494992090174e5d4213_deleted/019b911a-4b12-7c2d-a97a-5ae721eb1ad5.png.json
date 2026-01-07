@@ -1,0 +1,20 @@
+{
+    "asset": "7cd91b852c727494992090174e5d4213",
+    "fileName": "019b911a-4b12-7c2d-a97a-5ae721eb1ad5.png",
+    "prompt": "cute slime\n",
+    "negativePrompt": "",
+    "model": "409229d8-9653-42a8-b069-824d11ef6762",
+    "modelName": "8-bit Pixel",
+    "customSeed": -1,
+    "w3CTraceId": "805425746288d5a51b88d4a70f442d5d",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}
