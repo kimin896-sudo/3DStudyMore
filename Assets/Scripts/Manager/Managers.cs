@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-    private static Managers instance; // 유일성이 보장 된다 / 클래스에 종속적
+    private static Managers s_instance; // 유일성이 보장 된다 / 클래스에 종속적
     public static Managers Instance
     {
         get
-        { 
+        {
             Init();
-            return instance;
+            return s_instance;
         }
     }
     InputManager _inputManager = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성 
@@ -26,8 +26,13 @@ public class Managers : MonoBehaviour
             return Instance._soundManger;
         }
     }
-
-    public static SceneManagerEx Scene { get { return Instance._sceneManagerEx; } }
+    public static SceneManagerEx Scene
+    {
+        get
+        {
+            return Instance._sceneManagerEx;
+        }
+    }
     public static UI_Manager UI_Manager
     {
         get
@@ -42,12 +47,12 @@ public class Managers : MonoBehaviour
             return Instance._resourceMnager;
         }
     }
-    public static InputManager Input 
-    { 
-        get 
-        { 
-            return Instance._inputManager; 
-        } 
+    public static InputManager Input
+    {
+        get
+        {
+            return Instance._inputManager;
+        }
     }
     private void Update()
     {
@@ -60,7 +65,7 @@ public class Managers : MonoBehaviour
     }
     static void Init()
     {
-        if (instance == null)
+        if (s_instance == null)
         {
             GameObject go = GameObject.Find("@GameManagers");
 
@@ -70,8 +75,9 @@ public class Managers : MonoBehaviour
                 go.AddComponent<Managers>();
             }
             DontDestroyOnLoad(go);
-            instance = go.GetComponent<Managers>();
+            s_instance = go.GetComponent<Managers>();
 
+            s_instance._soundManger.Init(); // 앞으로 start에서 못 할땐 여기서 하자 
         }
     }
 }

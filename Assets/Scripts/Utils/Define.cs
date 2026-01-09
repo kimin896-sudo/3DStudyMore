@@ -23,4 +23,12 @@ public class Define
         Drag,
 
     }
+
+    public enum Sound
+    {
+        Bgm,
+        Effect,
+        MaxCount,
+
+    }
 }

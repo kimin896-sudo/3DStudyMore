@@ -23,7 +23,7 @@ public class Test : MonoBehaviour
 
 
             // 이게 가장 빠름 
-            int layerMask = (1 << Define.CLICK_LAYER);
+          //  int layerMask = (1 << Define.CLICK_LAYER);
            
             // (1 << 8) | (1 << 9)
 

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     private Vector3 destPosition;
-    bool moveToDest = false;
+   // bool moveToDest = false;
     Animator animator;
 
     float wait_run_ratio = 0f;
