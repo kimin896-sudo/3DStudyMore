@@ -1,11 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameScene : BaseScene // Game ¾À ¼±ºÀÀå 
 {
-
-
-
     protected override void Init()
     {
         base.Init();
@@ -15,6 +13,14 @@ public class GameScene : BaseScene // Game ¾À ¼±ºÀÀå
 
 
         //Managers.UI_Manager.ShowSceneUI<UI_Inven>("UI_Inven"); // ¾À¿¡ °ü·ÃµÈ UI´Ï±î Scene Class ¿¡¼­ °ü¸®ÇÏ°Ú´Ù.
+
+        /*        for (int i = 0; i < 5; i++)
+                {
+                    Managers.Resources.Instantiate("Player");
+                }*/
+
+        Dictionary<int,Stat> dict =  Managers.DataManager.StatDioct;
+
     }
     public override void Clear()
     {

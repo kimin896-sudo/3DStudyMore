@@ -34,7 +34,6 @@ public class SoundManger
         {
             path = $"Sounds/{path}";
         }
-
         if(type == Define.Sound.Bgm)
         {
             AudioClip audioClip = Managers.Resources.Load<AudioClip>(path);

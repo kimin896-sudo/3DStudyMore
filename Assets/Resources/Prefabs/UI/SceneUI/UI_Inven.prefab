@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3925129062641960085}
   - component: {fileID: 8696366583420407121}
   - component: {fileID: 296375521718883748}
+  - component: {fileID: 2424070607768673018}
   m_Layer: 5
   m_Name: UI_Inven
   m_TagString: Untagged
@@ -110,11 +111,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4338238351823250754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 422450a76f831f4429d3d6546717044e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_Scene
+--- !u!114 &2424070607768673018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338238351823250754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f18ad3e0b412244a89dac90f71f7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Inven
 --- !u!1 &7003443767896701215
 GameObject:
   m_ObjectHideFlags: 0
